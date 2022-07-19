@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: userService  # 服务名
+  profiles:
+    active: dev  # 开发环境     读取本地配置的时候，会找到名为 服务名+开发环境 的配置文件
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        group: icarus
+        timeout: 3000
+        refresh-enabled: true
+        extension-configs: # 微服务间共享配置
+          - dataId: userService.yml
